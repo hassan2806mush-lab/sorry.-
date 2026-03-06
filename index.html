@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<style>
+  body {
+    background: linear-gradient(180deg, #fce4ec, #f8bbd0);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* باقة الورد */
+  .flowers { font-size: 80px; margin-top: 20px; }
+
+  /* تأثير القلوب المتساقطة */
+  .heart { position: absolute; color: #ff4081; font-size: 20px; animation: fall 5s linear infinite; }
+  @keyframes fall { to { transform: translateY(100vh); } }
+
+  /* الكارت */
+  .card {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 30px;
+    border-radius: 30px;
+    border: 3px solid #ff80ab;
+    width: 85%;
+    max-width: 400px;
+    text-align: center;
+    margin-top: 50px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  }
+
+  .highlight { background-color: #ff80ab; color: white; padding: 2px 5px; border-radius: 5px; }
+</style>
+</head>
+<body>
+
+  <div class="flowers">💐</div>
+
+  <div class="card">
+    <p>تعلمين يقيناً يا <span class="highlight">نبضي</span> أنني لا أطيق في وجهك عبوساً، ولا في قلبك هماً..</p>
+    <p>إني أرجو <span class="highlight">عناقاً حاراً</span> يُنير ظلمة قلبي وقبلة تلي ذلك الزَّعل.. أتمنى أن تقبلي اعتذاري يا فاتنتي.</p>
+  </div>
+
+  <script>
+    // إنشاء قلوب متساقطة
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.innerHTML = '❤️';
+      heart.className = 'heart';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 5000);
+    }
+    setInterval(createHeart, 600);
+  </script>
+</body>
+</html>
